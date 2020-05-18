@@ -10,5 +10,8 @@ namespace ParkingBusinessLayer.Interface
     public interface IParkingBL
     {
         bool ParkingDatails(ParkingCL data);
+
+        int DeleteEmployee(ParkingID Data);
+
     }
 }

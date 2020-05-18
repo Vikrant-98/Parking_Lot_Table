@@ -35,5 +35,24 @@ namespace ParkingBusinessLayer.Services
                 throw new Exception(e.Message);
             }
         }
+        public int DeleteEmployee(ParkingID Data)
+        {
+            try
+            {
+                int Result = Parking.DeleteEmployee(Data);
+                if (Result == 0)
+                {
+                    return 0;
+                }
+                else
+                {
+                    return 1;
+                }
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+        }
     }
 }
