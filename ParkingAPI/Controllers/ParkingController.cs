@@ -49,5 +49,31 @@ namespace ParkingAPI.Controllers
                 return BadRequest(new { error = e.Message });
             }
         }
+        [HttpDelete]
+        [Route("delete")]
+        public IActionResult DeleteEmployee(ParkingID Data)
+        {
+            try
+            {
+                int result = BusinessLayer.DeleteEmployee(Data);
+                
+                if (result != 0)
+                {
+                    var Status = "True";
+                    var Message = "Parking Data deleted Sucessfully";
+                    return this.Ok(new { Status, Message, Data });
+                }
+                else                                           
+                {
+                    var Status = "False";
+                    var Message = "Parking Data is not deleted Sucessfully";
+                    return this.BadRequest(new { Status, Message, Data });
+                }
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+        }
     }
 }
