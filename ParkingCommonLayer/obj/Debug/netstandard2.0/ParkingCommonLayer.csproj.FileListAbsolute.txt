@@ -1,0 +1,9 @@
+C:\Users\The Daddy\source\repos\ParkingAPI\ParkingCommonLayer\bin\Debug\netstandard2.0\ParkingCommonLayer.deps.json
+C:\Users\The Daddy\source\repos\ParkingAPI\ParkingCommonLayer\bin\Debug\netstandard2.0\ParkingCommonLayer.dll
+C:\Users\The Daddy\source\repos\ParkingAPI\ParkingCommonLayer\bin\Debug\netstandard2.0\ParkingCommonLayer.pdb
+C:\Users\The Daddy\source\repos\ParkingAPI\ParkingCommonLayer\obj\Debug\netstandard2.0\ParkingCommonLayer.csprojAssemblyReference.cache
+C:\Users\The Daddy\source\repos\ParkingAPI\ParkingCommonLayer\obj\Debug\netstandard2.0\ParkingCommonLayer.csproj.CoreCompileInputs.cache
+C:\Users\The Daddy\source\repos\ParkingAPI\ParkingCommonLayer\obj\Debug\netstandard2.0\ParkingCommonLayer.AssemblyInfoInputs.cache
+C:\Users\The Daddy\source\repos\ParkingAPI\ParkingCommonLayer\obj\Debug\netstandard2.0\ParkingCommonLayer.AssemblyInfo.cs
+C:\Users\The Daddy\source\repos\ParkingAPI\ParkingCommonLayer\obj\Debug\netstandard2.0\ParkingCommonLayer.dll
+C:\Users\The Daddy\source\repos\ParkingAPI\ParkingCommonLayer\obj\Debug\netstandard2.0\ParkingCommonLayer.pdb
