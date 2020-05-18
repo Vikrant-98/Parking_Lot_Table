@@ -11,7 +11,9 @@ namespace ParkingBusinessLayer.Interface
     {
         bool ParkingDatails(ParkingCL data);
 
-        int DeleteEmployee(ParkingID Data);
+        int DeleteEmployee(ParkingCL Data);
+
+        int UpdateEmployee(ParkingCL data);
 
     }
 }
