@@ -1,0 +1,14 @@
+C:\Users\The Daddy\source\repos\ParkingAPI\ParkingBusinessLayer\bin\Debug\netstandard2.0\ParkingBusinessLayer.deps.json
+C:\Users\The Daddy\source\repos\ParkingAPI\ParkingBusinessLayer\bin\Debug\netstandard2.0\ParkingBusinessLayer.dll
+C:\Users\The Daddy\source\repos\ParkingAPI\ParkingBusinessLayer\bin\Debug\netstandard2.0\ParkingBusinessLayer.pdb
+C:\Users\The Daddy\source\repos\ParkingAPI\ParkingBusinessLayer\bin\Debug\netstandard2.0\ParkingCommonLayer.dll
+C:\Users\The Daddy\source\repos\ParkingAPI\ParkingBusinessLayer\bin\Debug\netstandard2.0\ParkingReposLayer.dll
+C:\Users\The Daddy\source\repos\ParkingAPI\ParkingBusinessLayer\bin\Debug\netstandard2.0\ParkingCommonLayer.pdb
+C:\Users\The Daddy\source\repos\ParkingAPI\ParkingBusinessLayer\bin\Debug\netstandard2.0\ParkingReposLayer.pdb
+C:\Users\The Daddy\source\repos\ParkingAPI\ParkingBusinessLayer\obj\Debug\netstandard2.0\ParkingBusinessLayer.csprojAssemblyReference.cache
+C:\Users\The Daddy\source\repos\ParkingAPI\ParkingBusinessLayer\obj\Debug\netstandard2.0\ParkingBusinessLayer.csproj.CoreCompileInputs.cache
+C:\Users\The Daddy\source\repos\ParkingAPI\ParkingBusinessLayer\obj\Debug\netstandard2.0\ParkingBusinessLayer.AssemblyInfoInputs.cache
+C:\Users\The Daddy\source\repos\ParkingAPI\ParkingBusinessLayer\obj\Debug\netstandard2.0\ParkingBusinessLayer.AssemblyInfo.cs
+C:\Users\The Daddy\source\repos\ParkingAPI\ParkingBusinessLayer\obj\Debug\netstandard2.0\ParkingBusinessLayer.csproj.CopyComplete
+C:\Users\The Daddy\source\repos\ParkingAPI\ParkingBusinessLayer\obj\Debug\netstandard2.0\ParkingBusinessLayer.dll
+C:\Users\The Daddy\source\repos\ParkingAPI\ParkingBusinessLayer\obj\Debug\netstandard2.0\ParkingBusinessLayer.pdb
