@@ -25,8 +25,7 @@ namespace ParkingReposLayer.Services
                 command.Parameters.AddWithValue("VehicalColor", data.VehicalColor);
                 if (data.ExitTime > data.EntryTime && data.ParkingType != "Own")
                 {
-                    TimeSpan time = data.ExitTime - data.EntryTime;
-                    data.ChargePerHr = Convert.ToInt32(time) * CHARGE_PER_HR;
+                    data.ChargePerHr = CHARGE_PER_HR;
                 }
                 command.Parameters.AddWithValue("ChargePerHr", data.ChargePerHr);
                 command.Parameters.AddWithValue("EntryTime", data.EntryTime);
@@ -40,6 +39,7 @@ namespace ParkingReposLayer.Services
 
                 connection.Open();
                 int Response = command.ExecuteNonQuery();
+                connection.Close();
                 if (Response != 0)
                 {
                     return true;
@@ -58,13 +58,13 @@ namespace ParkingReposLayer.Services
                 connection.Close();
             }
         }
-        public int DeleteEmployee(ParkingID Data)
+        public int DeleteEmployee(ParkingCL data)
         {
 
             try
             {
                 SqlCommand command = StoreProcedureConnection("spDeleteParkingRcords", connection);
-                command.Parameters.AddWithValue("@ParkingId", Data.ParkingId);
+                command.Parameters.AddWithValue("@ParkingId", data.ParkingId);
                 connection.Open();
                 int Response = command.ExecuteNonQuery();
                 connection.Close();
@@ -80,6 +80,55 @@ namespace ParkingReposLayer.Services
             catch (Exception e)
             {
                 throw new Exception(e.Message);
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+        public int UpdateEmployee(ParkingCL data)
+        {
+            try
+            {
+
+                SqlCommand command = StoreProcedureConnection("spUpdateParkingDetails", connection);
+                command.Parameters.AddWithValue("@ParkingId", data.ParkingId);
+                command.Parameters.AddWithValue("VehicalNo", data.VehicalNo);
+                command.Parameters.AddWithValue("VehicalBrand", data.VehicalBrand);
+                command.Parameters.AddWithValue("VehicalColor", data.VehicalColor);
+                if (data.ExitTime > data.EntryTime && data.ParkingType != "Own")
+                {
+                    data.ChargePerHr = CHARGE_PER_HR;
+                }
+                command.Parameters.AddWithValue("ChargePerHr", data.ChargePerHr);
+                command.Parameters.AddWithValue("EntryTime", data.EntryTime);
+                command.Parameters.AddWithValue("DriverCategory", data.DriverCategory);
+                command.Parameters.AddWithValue("ParkingType", data.ParkingType);
+                if (data.ExitTime < data.EntryTime)
+                {
+                    data.ExitTime = data.EntryTime;
+                }
+                command.Parameters.AddWithValue("ExitTime", data.ExitTime);
+
+                connection.Open();
+                int Response = command.ExecuteNonQuery();
+                connection.Close();
+                if (Response == 0)
+                {
+                    return 0;
+                }
+                else
+                {
+                    return 1;
+                }
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+            finally
+            {
+                connection.Close();
             }
         }
         public SqlCommand StoreProcedureConnection(string Procedurename, SqlConnection connection)
