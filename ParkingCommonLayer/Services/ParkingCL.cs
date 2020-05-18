@@ -6,6 +6,8 @@ namespace ParkingCommonLayer.Services
 {
     public class ParkingCL
     {
+        public string ParkingId { get; set; }
+
         public int VehicalNo { get; set; }
 
         public string VehicalBrand { get; set; }
