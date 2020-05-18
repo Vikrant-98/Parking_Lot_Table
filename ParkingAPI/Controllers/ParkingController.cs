@@ -51,7 +51,7 @@ namespace ParkingAPI.Controllers
         }
         [HttpDelete]
         [Route("delete")]
-        public IActionResult DeleteEmployee(ParkingID Data)
+        public IActionResult DeleteEmployee(ParkingCL Data)
         {
             try
             {
@@ -68,6 +68,31 @@ namespace ParkingAPI.Controllers
                     var Status = "False";
                     var Message = "Parking Data is not deleted Sucessfully";
                     return this.BadRequest(new { Status, Message, Data });
+                }
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+        }
+        [HttpPatch]
+        [Route("update")]
+        public IActionResult UpdateEmployee([FromBody] ParkingCL data)
+        {
+            try
+            {
+                int Result = BusinessLayer.UpdateEmployee(data);
+                if (Result == 0)
+                {
+                    var Status = "False";
+                    var Message = "wrong input";
+                    return this.BadRequest(new { Status, Message, data });
+                }
+                else                                             
+                {
+                    var Status = "True";
+                    var Message = "Employee Data Updated Sucessfully";
+                    return this.Ok(new { Status, Message, data });
                 }
             }
             catch (Exception e)
