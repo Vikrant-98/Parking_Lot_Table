@@ -10,11 +10,12 @@ namespace ParkingReposLayer.Services
 {
     public class ParkingRL : IParkingRL
     {
+        SqlConnection connection = new SqlConnection("Data Source=DESKTOP-MQSNJSU;Initial Catalog=MyDatabase;Integrated Security=True");
+
         public static readonly int CHARGE_PER_HR = 2;
         public bool ParkingDatails(ParkingCL data)
         {
-            SqlConnection connection = new SqlConnection("Data Source=DESKTOP-MQSNJSU;Initial Catalog=MyDatabase;Integrated Security=True");
-            try
+             try
             {
 
                 SqlCommand command = StoreProcedureConnection("spAddParkingDetail", connection);
@@ -57,7 +58,30 @@ namespace ParkingReposLayer.Services
                 connection.Close();
             }
         }
-        
+        public int DeleteEmployee(ParkingID Data)
+        {
+
+            try
+            {
+                SqlCommand command = StoreProcedureConnection("spDeleteParkingRcords", connection);
+                command.Parameters.AddWithValue("@ParkingId", Data.ParkingId);
+                connection.Open();
+                int Response = command.ExecuteNonQuery();
+                connection.Close();
+                if (Response != 0)
+                {
+                    return 1;
+                }
+                else
+                {
+                    return 0;
+                }
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+        }
         public SqlCommand StoreProcedureConnection(string Procedurename, SqlConnection connection)
         {
             using (SqlCommand command = new SqlCommand(Procedurename, connection))

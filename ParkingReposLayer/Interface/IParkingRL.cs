@@ -9,5 +9,7 @@ namespace ParkingReposLayer.Interface
     public interface IParkingRL
     {
         bool ParkingDatails(ParkingCL data);
+
+        int DeleteEmployee(ParkingID Data);
     }
 }
