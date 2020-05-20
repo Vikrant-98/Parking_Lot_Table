@@ -13,5 +13,11 @@ namespace ParkingReposLayer.Interface
         int DeleteEmployee(ParkingCL Data);
 
         int UpdateEmployee(ParkingCL data);
+
+        IEnumerable<ParkingCL> GetAllParkingDetails();
+
+        ParkingCL GetspecifiParkingDetails(int ID);
+
+        bool ParkingLogin(ParkingCL data);
     }
 }
