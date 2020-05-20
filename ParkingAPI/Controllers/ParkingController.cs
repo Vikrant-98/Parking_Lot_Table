@@ -1,13 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using ParkingCommonLayer.Services;
 using ParkingBusinessLayer.Interface;
 using Microsoft.Extensions.Configuration;
-using ParkingReposLayer.Services;
 
 namespace ParkingAPI.Controllers
 {
@@ -24,7 +20,7 @@ namespace ParkingAPI.Controllers
             this.configuration = configuration;
         }
         
-        [Route("")]
+        [Route("adddetails")]
         [HttpPost]
         public IActionResult ParkingLOTDetails([FromBody]ParkingCL Info)
         {
@@ -75,6 +71,32 @@ namespace ParkingAPI.Controllers
                 throw new Exception(e.Message);
             }
         }
+        [HttpPost]
+        [Route("login")]
+        public IActionResult ParkingLogin([FromBody] ParkingCL Info)
+        {
+            try
+            {
+                var Result = BusinessLayer.ParkingLogin(Info);
+                
+                if (!Result.Equals(null))
+                {
+                    var status = "True";
+                    var Message = "Login Successful";
+                    return Ok(new { status, Message, Result });
+                }
+                else                                        
+                {
+                    var status = "False";
+                    var Message = "Invaid Username Or Password";
+                    return BadRequest(new { status, Message, Result });
+                }
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+        }
         [HttpPatch]
         [Route("update")]
         public IActionResult UpdateEmployee([FromBody] ParkingCL data)
@@ -91,9 +113,33 @@ namespace ParkingAPI.Controllers
                 else                                             
                 {
                     var Status = "True";
-                    var Message = "Employee Data Updated Sucessfully";
+                    var Message = "Parking Data Updated Sucessfully";
                     return this.Ok(new { Status, Message, data });
                 }
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+        }
+        [HttpGet]
+        public IEnumerable<ParkingCL> GetAllParkingDetails()
+        {
+            try
+            {
+                return BusinessLayer.GetAllParkingDetails();
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+        }
+        [HttpGet("{ID}")]
+        public ParkingCL GetAllParkingDetails(int ID)
+        {
+            try
+            {
+                return BusinessLayer.GetspecifiParkingDetails(ID);
             }
             catch (Exception e)
             {
