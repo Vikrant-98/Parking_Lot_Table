@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 using ParkingCommonLayer.Services;
-using ParkingReposLayer.Services;
 
 namespace ParkingBusinessLayer.Interface
 {
@@ -14,6 +13,12 @@ namespace ParkingBusinessLayer.Interface
         int DeleteEmployee(ParkingCL Data);
 
         int UpdateEmployee(ParkingCL data);
+
+        IEnumerable<ParkingCL> GetAllParkingDetails();
+
+        ParkingCL GetspecifiParkingDetails(int ID);
+
+        bool ParkingLogin(ParkingCL data);
 
     }
 }

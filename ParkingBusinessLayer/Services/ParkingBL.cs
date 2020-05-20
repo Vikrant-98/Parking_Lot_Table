@@ -35,6 +35,26 @@ namespace ParkingBusinessLayer.Services
                 throw new Exception(e.Message);
             }
         }
+        public bool ParkingLogin(ParkingCL data)
+        {
+            try
+            {
+                var Result = Parking.ParkingLogin(data);
+                
+                if (!Result.Equals(null))
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+        }
         public int DeleteEmployee(ParkingCL Data)
         {
             try
@@ -68,6 +88,28 @@ namespace ParkingBusinessLayer.Services
                 {
                     return 1;
                 }
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+        }
+        public IEnumerable<ParkingCL> GetAllParkingDetails()
+        {
+            try
+            {
+                return Parking.GetAllParkingDetails();
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+        }
+        public ParkingCL GetspecifiParkingDetails(int ID)
+        {
+            try
+            {
+                return Parking.GetspecifiParkingDetails(ID);
             }
             catch (Exception e)
             {
